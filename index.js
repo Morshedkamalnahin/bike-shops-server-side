@@ -133,7 +133,7 @@ async function run() {
             const query = { email: email };
             const user = await usersCollection.findOne(query);
             let isAdmin = false;
-            if (user?.role == 'admin') {
+            if (user?.role == "admin") {
                 isAdmin = true;
             }
             res.json({ admin: isAdmin });
@@ -153,7 +153,7 @@ async function run() {
             const user = req.body;
             console.log('put', user);
             const filter = { email: user.email };
-            const updateDoc = { $set: { role: 'admin' } }
+            const updateDoc = { $set: { role: "admin" } }
             const result = await usersCollection.updateOne(filter, updateDoc);
             res.json(result);
         })
